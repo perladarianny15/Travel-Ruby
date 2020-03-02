@@ -1,32 +1,34 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<head>
+<%= stylesheet_link_tag 'Sign', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+</head>
+<body>
+<div id="form_wrapper">
+    <div id="form_left">
+        <%= image_tag '1.jpg', class:"img-thumbnail"%>
     </div>
-  <% end %>
+    <%= form_with(model: user, local: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div id="form_right">
+        <h1>Member Login</h1>
+        <div class="input_container">
+            <i class="fas fa-envelope"></i>
+            <%= form.text_field :name, class:"input_field", placeholder:"User Name"%>
+        </div>
+        <div class="input_container">
+            <i class="fas fa-envelope"></i>
+			<%= form.text_field :email, class:"input_field", placeholder:"Email"%>    
+    		</div>
+        <div class="input_container">
+            <i class="fas fa-lock"></i>
+			<%= form.text_field :password, class:"input_field", placeholder:"Password", type:"password"%> 
+       </div>
+        <input type="submit" value="Login" id='input_submit' class="input_field">
+        <span>Forgot <a href="#"> Username / Password ?</a></span>
+        <!--<span id='create_account'>
+            <a href="#">Create your account ➡ </a>
+        </span>-->
+    </div>
+</div>
 <% end %>
+</body>
