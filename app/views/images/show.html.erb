@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
+<div class="container portfolio-container">
+  <div class="row">
+    <div class="col-md-7">
+      <%=  image_tag(@image.picture.url, size:"300x300")if @image.picture?%>
+    </div>
+    <div class="col-md-5">
+      <h1>  <%= @image.name %> </h1>
+      <hr>
 
-<p>
-  <strong>Name:</strong>
-  <%= @image.name %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @image.description %>
+      </p>
+    <%= link_to 'Edit', edit_image_path(@image) %> |
+    <%= link_to 'Back', images_path %>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @image.description %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%=  image_tag(@image.picture.url, size:"300x300") if @image.picture?%>
-</p>
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+  </div>

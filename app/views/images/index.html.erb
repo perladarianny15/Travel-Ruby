@@ -1,30 +1,35 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+  <title>CSS Gallery</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:600,900" rel="stylesheet">
+  <%= stylesheet_link_tag "Portfolio" %>
+  <%= javascript_include_tag "Modal" %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <%= javascript_include_tag "bootstrap" %>
 
-<h1>Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+</head>
+<body>
+  <h1>TravelWise Gallery</h1>
+  <div class="container-all">
     <% @images.each do |image| %>
-      <tr>
-        <td><%= link_to image.name, image_path(image) %></td>
-        <td><%= image.description %></td>
-        <td><%= image_tag image.picture.url, size:"100x100" %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="container">
+           <a href="#"><%=  image_tag(image.picture.url) if image.picture?%></a>
+           <span class="title"><%= image.name %> </span>
+           <span class="text"><%= image.description %></span>
+      </div>
+    <%end%>
+  </div>
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <%if current_user%>
+      <%= link_to 'Back', home_admin_path, class:'btn btn-light'%>
+    <%else%>
+      <%= link_to 'Back', root_path, class:'btn btn-light'%>
+    <%end%>
+    <!-- /.container -->
+  </footer>
+</body>
 
-<br>
-
-<%= link_to 'New Image', new_image_path %>
+</html>

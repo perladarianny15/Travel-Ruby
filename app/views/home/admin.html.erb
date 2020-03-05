@@ -13,7 +13,9 @@
 
   <!-- Custom styles for this template-->
   <%= stylesheet_link_tag "admin" %>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <%= javascript_include_tag "bootstrap" %>
+
 </head>
 
 <body id="page-top">
@@ -58,7 +60,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Table Actions:</h6>
             <%= link_to 'New Article', new_article_path, class:"collapse-item" %>
-            <a class="collapse-item" href="cards.html">Cards</a>
+            <%= link_to 'Portfolio', images_path, class:"collapse-item" %>
           </div>
         </div>
       </li>
@@ -113,7 +115,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content"></div>
           </div>
-        </div>   
+        </div>
       </li>
 
       <!-- Divider -->
