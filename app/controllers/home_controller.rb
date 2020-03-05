@@ -3,6 +3,6 @@ class HomeController < ApplicationController
 
     end
     def admin
-
+        @articles = Article.all
     end
 end
